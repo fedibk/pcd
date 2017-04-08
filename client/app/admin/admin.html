@@ -1,0 +1,24 @@
+<div class="container">
+<div class="col">
+  <table class="table table-hover table-sm" align="center">
+    <thead>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Action</th>
+      <th>Role</th>
+    </thead>
+    <tbody>
+    <div ng-class="admin.hideAdmin()">
+      <tr ng-repeat="user in admin.users">
+        <td ng-if="user.role != 'admin'">{{user.name}}</td>
+        <td ng-if="user.role != 'admin'">{{user.role}}</td>
+        <td ng-if="user.role != 'admin'">
+          <button class="btn btn-danger" ng-click="admin.delete(user)" ><span class="fa fa-trash fa-lg"></span> Delete</button></td>
+          <td ng-if="user.role != 'admin'"><button type="button" class="btn" ng-class="user.role == 'admin' ? 'btn-success' : 'btn-warning'" ng-click="admin.changeRole(user)" ><span ng-class="user.role == 'user' ? 'fa fa-lock' : 'fa fa-unlock'"></span> {{user.role}}</button>
+        </td>
+      </tr>
+      </div>
+    </tbody>
+  </table>
+  </div>
+</div>
